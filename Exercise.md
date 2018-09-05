@@ -1,6 +1,6 @@
 <table width=100% border=>
 <tr><td colspan=2><h1>演習 - IoT Application Enablement</h1></td></tr>
-<tr><td><h3>SAP Partner Workshop</h3></td><td><h1><img src="images/clock.png"> &nbsp;120 min</h1></td></tr>
+<tr><td><h3>SAP Partner Workshop</h3></td><td><h1><img src="images/clock.png"> &nbsp;150 min</h1></td></tr>
 </table>
 
 
@@ -27,7 +27,7 @@
 
 ## Prerequisites
 
-Here below are prerequisites for this exercise.
+本エクササイズで利用するソフトウェア・サービスは以下になります.
 
 * Chrome browser
 * SAP IoT Application Enablement system (provided by your instructor)
@@ -38,14 +38,15 @@ Here below are prerequisites for this exercise.
 
 
 ### Wio LTE接続先変更
-1. [Wio LTEの接続先変更](#update-wio-connection)
 1. [Create the device model](#create-device-model)
-2. [send & subscribe message](#send-subscribe-message)
-1. [Create your own Package for Greenhouses](#create-package)
-1. [Create the Thing Model](#thing-model)
-1. [Create a Thing](#create-thing)
-1. [Connect the thing with the device](#connect-thing-with-device)
-1. [Set up Postman to call APIs](#postman)
+2. [デバイス証明書のダウンロード](#download-certificate)
+2. [Wio LTEの接続先変更](#update-wio-connection)
+3. [send & subscribe message](#send-subscribe-message)
+4. [Create your own Package for Greenhouses](#create-package)
+5. [Create the Thing Model](#thing-model)
+6. [Create a Thing](#create-thing)
+7. [Connect the thing with the device](#connect-thing-with-device)
+8. [Set up Postman to call APIs](#postman)
 
 ## IoTアプリケーション開発
 1. [Build a SAPUI5 app with SAP Web IDE](#build-app)
@@ -121,6 +122,46 @@ The Thing that we will create later, in order to work properly, needs to be atta
 1. Your device has been successfully created.
 	![](images/052.png)
 
+	### <a name="download-certificate"></a> デバイス証明書のダウンロード
+	SORACOM経由でメッセージを送受信するために接続先登録を行います。その際にIoT SErviceではクライアント証明書を利用した認証を行いますので、接続先を変更する前に事前に登録したデバイスの証明書を取得します。
+
+	1. IoT Service cockpitでユーザとパスワードを入力してログインします
+		![](images/108.png)
+
+	1. 左側のメニューから**Devices**を選択しNameとtypeを検索します。 検索ボックスに登録したデバイス名を入力 **gh\_climate\_device\_xx** (where **xx** is your workstation ID)
+		![](images/109.png)
+
+	1. **Certificate** を選択し **Generate Certificate** をクリックします。証明書が生成され、ディスクにファイルを保存するかどうかの確認メッセージが表示されます。 次のセクションで必要となるので格納場所に留意してください
+		![](images/110.png)
+
+	1. Certificate type **pem** を指定し **Generate**を押下。
+		![](images/soracom/download_certificate_4.png)
+
+	1. パスワードが表示されるので、メモ帳などに書きとめてから **OK**を押下。
+		![](images/112.png)
+
+	1. 証明書を保存した場所を忘れてしまった場合は、Chromeのステータスバーでダウンロードしたファイルの横にある小さな下矢印をクリックし、Finder（MAC）で表示またはExplorer（WIN）で表示を選択できます。
+		![](images/113.png)
+
+### <a name="update-wio-connection"></a> Wio LTEの接続先変更
+1. Wio LTEの淵源をオフにする<br>
+	Wio LTE の microUSB ケーブルを抜き、電源を OFF にしてください<br>
+	※いきなり抜いてOKです。また、すでに OFF になっている場合は次に進んでください<p>
+
+2. [デバイス証明書のダウンロード](#download-certificate)で取得した証明書からパスフレーズを取り除く
+	1. ターミナル(Mac)、コマンドプロンプト(Windows)を起動し、ダウンロードした証明書へ移動する。<br>
+
+	2.OpenSSLコマンドでダウンロードしたpemファイルからパスフレーズを取り除く<br>
+	<i>$ openssl rsa -in <ダウンロードしたpemファイル> -out <パスフレーズを外したpemファイル></i>
+	![](images/soracom/updatewioconnection_2_1.png)
+	※コマンド入力後にパスフレーズの入力を求められるので、先ほど書きとめたパスワードを入力
+
+3. SORACOMへ認証情報を保管する
+	1. SORACOM Webコンソール で 左上[Menu] > [セキュリティ]
+	![](images/update-wio-connection_3_1.png)
+	2.  [認証情報ストア] > [認証情報を登録] で 認証情報入力画面を開きます
+	![](images/update-wio-connection_3_2.png)
+	3.  [認証情報ストア] > [認証情報を登録] で 認証情報入力画面を開きます
 
 
 ### <a name="create-package"></a> Create your own Package for Greenhouses
