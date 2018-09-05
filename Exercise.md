@@ -257,6 +257,43 @@ The Thing that we will create later, in order to work properly, needs to be atta
 		# ※川畑君ここの画像、SAP IoT向けの画像をとってください！！
 
 3. SORACOM Beam 設定
+	1. SORACOM Web コンソール で 左上[Menu] > [SIM グループ]<br>
+		[追加] で、SIMグループを作成します (グループ名 beam もしくは任意でかまいません)
+	2. 先ほど作成した SIMグループ をクリックし、 SORACOM Beam の設定を開きます
+	3. SORACOM Beam の「＋」をクリックし、一覧の中から MQTT エントリポイント をクリック
+		![](https://camo.githubusercontent.com/024b4448e8cc449ad4d353b8752f8aeb6aef3c91/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f652f32504143582d3176546f6d735164534c672d51616f594735393163312d4e4a596f6277675849365971707050386831364e6e78424c693873642d5158464a7672724b724b437a364a573464306f56702d5558434964542f7075623f773d34333526683d343037)
+
+	4.SORACOM Beam の設定では、下記の通り入力し、保存してください
+	 - 設定名: to-sapiot
+	 - プロトコル: MQTTS
+	 - ホスト名:  e8b62b4e-8c48-4704-9522-b0fa7f43ee52.eu10.cp.iot.sap
+	 - ポート番号: 8883
+	 - ユーザ名 と パスワード: (空のままで OK です)
+証明書: ON
+認証情報: sapiot-cred (前手順 1 で作成した証明書を選択)
+IMSI 付与: ON
+![](https://camo.githubusercontent.com/3a3a1b6bdc9f8e23d450bf16becdb5e7d55e97ee/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f652f32504143582d317654554a78552d63482d7177586c58426b6b7a7449774c6a5561755559627044305730745f6d51397047457638794672367a6a41797a5f46556e56564156386a514c37364932657335476a5573336c2f7075623f773d33383926683d373639)
+# ※川畑君ここの画像、SAP IoT向けの画像をとってください！！
+
+	5. 左上[Menu] > [SIM 管理]
+		 - Wio LTE に取り付けている SIM を選択 > [操作] > [所属グループ変更]
+		 - 先ほど作成した SIMグループ に所属させる
+
+### <a name="send-subscribe-message"></a> メッセージの送受信
+1. Arudino IDEを起動する
+2. Arudino IDEへのスケッチの登録とメッセージ送信
+	1. Aurdinoソースコードを修正
+	2. ソースコードをコンパイル
+	3. Wio LTEへデプロイと実行
+1. デバイスへのTopic送信（メッセージ受信）
+	1. IoT Serviceへログイン
+	2. API Documentationを開く
+	 - 左メニューの[Useful Link] -> [API Docs]を選択
+	![](images/soracom/sendsubscrib_3_2.png)
+	3. AP
+	4. [Devices] -> [/devices/{deviceId}/commands]を開く
+
+
 
 ### <a name="create-package"></a> Create your own Package for Greenhouses
 
