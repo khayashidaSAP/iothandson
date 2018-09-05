@@ -41,7 +41,7 @@
 1. [Create the device model](#create-device-model)
 2. [デバイス証明書のダウンロード](#download-certificate)
 2. [Wio LTEの接続先変更](#update-wio-connection)
-3. [send & subscribe message](#send-subscribe-message)
+3. [メッセージの送受信](#send-subscribe-message)
 4. [Create your own Package for Greenhouses](#create-package)
 5. [Create the Thing Model](#thing-model)
 6. [Create a Thing](#create-thing)
@@ -123,7 +123,7 @@ The Thing that we will create later, in order to work properly, needs to be atta
 	![](images/052.png)
 
 	### <a name="download-certificate"></a> デバイス証明書のダウンロード
-	SORACOM経由でメッセージを送受信するために接続先登録を行います。その際にIoT SErviceではクライアント証明書を利用した認証を行いますので、接続先を変更する前に事前に登録したデバイスの証明書を取得します。
+	SORACOM経由でメッセージを送受信するために接続先登録を行います。その際にIoT Serviceではクライアント証明書を利用した認証を行いますので、接続先を変更する前に事前に登録したデバイスの証明書を取得します。
 
 	1. IoT Service cockpitでユーザとパスワードを入力してログインします
 		![](images/108.png)
@@ -151,18 +151,112 @@ The Thing that we will create later, in order to work properly, needs to be atta
 2. [デバイス証明書のダウンロード](#download-certificate)で取得した証明書からパスフレーズを取り除く
 	1. ターミナル(Mac)、コマンドプロンプト(Windows)を起動し、ダウンロードした証明書へ移動する。<br>
 
-	2.OpenSSLコマンドでダウンロードしたpemファイルからパスフレーズを取り除く<br>
+	2. OpenSSLコマンドでダウンロードしたpemファイルからパスフレーズを取り除く<br>
 	<i>$ openssl rsa -in <ダウンロードしたpemファイル> -out <パスフレーズを外したpemファイル></i>
 	![](images/soracom/updatewioconnection_2_1.png)
 	※コマンド入力後にパスフレーズの入力を求められるので、先ほど書きとめたパスワードを入力
 
 3. SORACOMへ認証情報を保管する
-	1. SORACOM Webコンソール で 左上[Menu] > [セキュリティ]
-	![](images/update-wio-connection_3_1.png)
-	2.  [認証情報ストア] > [認証情報を登録] で 認証情報入力画面を開きます
-	![](images/update-wio-connection_3_2.png)
-	3.  [認証情報ストア] > [認証情報を登録] で 認証情報入力画面を開きます
+	1. SORACOM Webコンソールで左上[Menu] > [セキュリティ]
+	![](https://camo.githubusercontent.com/50f45f68504ce9ad184ba084ca82f29ac64eb7ad/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f652f32504143582d31765268676d736a71706e6376324851306a415a77695966306b6e5466766d434d6c36785f666c726465475156344e3630747270384d39383167434166697456536d585534747141596d364d6d7952622f7075623f773d33333126683d343130)
 
+	2.  [認証情報ストア] > [認証情報を登録] で 認証情報入力画面を開きます
+	![](https://camo.githubusercontent.com/4b0a0a63768f32b7dd1d9264ddc66431a5e937f6/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f652f32504143582d3176526f504e4f7775476967426a6c364d4e66715170585a4c314d466d675065557577464c4e4633545452445a4d514a6631472d486477756b48356f7445377464487930594d394d57586d4c6163367a2f7075623f773d36323426683d333039)
+
+	3.  認証情報を登録する画面では下記の通り入力し、保存してください<p>
+		・認証情報ID: sapiot-cred<br>
+		・概要: eu10.cp.iot.sap 接続用証明書<br>
+		・種別: X.509 証明書 (これを選択すると、下記を入力するテキストボックスが増えます)<br>
+
+		#### 秘密鍵 (先ほどパスフレーズを取り除いたpemファイルの内容)
+		```
+		-----BEGIN RSA PRIVATE KEY-----
+		MIIEoAIBAAKCAQEAmz6IonHiJkkqnKdBW9wfKbbd+C3oASszYOzChTnOembiUWqK
+		PixWwwxofuMndq/jo8RSJMAY/0/UZr5IV1qvS8hc/IeySsByK7U7dchOxg7pdp7o
+		AWkKCzedQ/uwk3i93f8UBKvwxZv0lOB9BdwmVJlgsIeNSGTlqBJDQXhcFDDz3bsA
+		89rlVfK8VRJwY/fr8jFs6xWT39w6sYKDdZi6yefm132zqj8bdIEAPRslQPBscnEQ
+		ClY/Zg9Z6HAzz8wEV+GZnvSCoedlbRGK197lIytd+guDApgjbxzcQK2kKXf6iGmu
+		SBl1U5yX3G8fDc9ceRmZECDBENod4v0r4bwoKQIDAQABAoH/e7VZLBmUHO4xBqRB
+		cPH340XVm+748fV6+8GvQHrQDrntnvNHNkQe308D9hkNWYbP37CRxLdPNCRpHXaE
+		LxgUmE8RyipX6TlxwWKp/zGflDRN1jjKqFULq+SlbYcjLmEI695YFWDufInKXNiG
+		yCSmZsPSSNm7u/SrDUOAVKuUtIEN5cRHxeoKutI5f9Dk5KMjamwTOJOxIOafQTTf
+		jW5/va4YAufWu08jGxQy6CkolFBJtCmJlGLEQ49JekquC737502KGB0GdPOwrw4C
+		Zdx5iksuaTmktBvnxO1lD1M2lKk6FdR4JqwHi1TnRBPqnXxGsV9y0ud3/KpN3gCv
+		J+YBAoGBAOBGvmJoFc7VEbFTFUuHABhOo5NB2dvWAmRTEwUgUYW8dPWygnkpOP8f
+		LuTcpsrzHbxdllT5Azub6a7mGRazp/thBvcoFY8x55Q9eZZLykzBvsDU9QFJcvOb
+		/ACzqNIFg52FN7McG+/qMZDH6pjFRuv0jxkx6Dr10irfIEeCXb9xAoGBALE0Evv8
+		d4QgbGT1Y41ik2UkGwnLjWWVp/RKknhcbMorV4qhN6bhdzdro0sUtYaNOwLiF+sT
+		7jAmma66Fak8PRh3v7nPJlSasdQnIR/mmIUNouyTAlwqZa13uwE2yD4uJs0EYPiv
+		k+IAztup3+dLyxXw5y9OuCgf4e/WTSQscQg5AoGARo3azMhju+qJo1g4xcbVf9AV
+		Y3j+2Uqs+/Sqch1lqAXOYZDjvMv8Ez4zGWpUylnLC/wBFAA2RSVaUVwvnlWsTceL
+		Umt4xNB1QsxIGMEFBjqZEL6tyNbbY8m5cFsUi+WSLxa+nAkGvOXW6+4IXkEJe6c2
+		8T0jCpFUqYoB9J0NcvECgYANXX8dEGK3TXa/ep6imE/DriB38aldgxci3skDWP0/
+		lltI8nXvGUxTmsO7MvmqB1bvFbx2F4+8g/zNZ+2gURHOmaGVUyFx+iT1emoOLOdO
+		CcRDEad46h23IrOxGL+rqPF2PyFNQHjn7+WqPbrMiDPuGLhnIgnTxOvWmhRBaTSx
+		SQKBgHMuBcYPfoElB+37x6hEC+h+Dsi4fcJ0QZcL30P8Nk7FU1EqRALGAPhpVvK+
+		Oyu5mzwQ8/dWim3j3E4slUiXhBptcAecaBeppeUhcFvvDmNJAEFeBFpxAzsGlWWa
+		FqbzL/mTAs/MF8XTXzvf2Kp0+JJAnx3p2Z0yTQo5wG9A5X9P
+		-----END RSA PRIVATE KEY-----
+		```
+
+		#### 証明書 (パスフレーズを取り除く前のpemファイルに記載されている内容)
+		```
+		-----BEGIN CERTIFICATE-----
+		MIIESDCCAzCgAwIBAgIOMXZgtLw91F4QAQIR7QgwDQYJKoZIhvcNAQELBQAwVjEL
+		MAkGA1UEBhMCREUxIzAhBgNVBAoTGlNBUCBJb1QgVHJ1c3QgQ29tbXVuaXR5IElJ
+		MSIwIAYDVQQDExlTQVAgSW50ZXJuZXQgb2YgVGhpbmdzIENBMB4XDTE4MDkwNDIy
+		NTUzOFoXDTE5MDkwNDIyNTUzOFowgZYxCzAJBgNVBAYTAkRFMRwwGgYDVQQKExNT
+		QVAgVHJ1c3QgQ29tbXVuaXR5MRUwEwYDVQQLEwxJb1QgU2VydmljZXMxUjBQBgNV
+		BAMUSWNsaWVudGlkOmNjYTllNjk1MjkwYmIwOGJ8aW5zdGFuY2VpZDplOGI2MmI0
+		ZS04YzQ4LTQ3MDQtOTUyMi1iMGZhN2Y0M2VlNTIwggEiMA0GCSqGSIb3DQEBAQUA
+		A4IBDwAwggEKAoIBAQCbPoiiceImSSqcp0Fb3B8ptt34LegBKzNg7MKFOc56ZuJR
+		aoo+LFbDDGh+4yd2r+OjxFIkwBj/T9RmvkhXWq9LyFz8h7JKwHIrtTt1yE7GDul2
+		nugBaQoLN51D+7CTeL3d/xQEq/DFm/SU4H0F3CZUmWCwh41IZOWoEkNBeFwUMPPd
+		uwDz2uVV8rxVEnBj9+vyMWzrFZPf3DqxgoN1mLrJ5+bXfbOqPxt0gQA9GyVA8Gxy
+		cRAKVj9mD1nocDPPzARX4Zme9IKh52VtEYrX3uUjK136C4MCmCNvHNxAraQpd/qI
+		aa5IGXVTnJfcbx8Nz1x5GZkQIMEQ2h3i/SvhvCgpAgMBAAGjgdIwgc8wSAYDVR0f
+		BEEwPzA9oDugOYY3aHR0cHM6Ly90Y3MubXlzYXAuY29tL2NybC9UcnVzdENvbW11
+		bml0eUlJL1NBUElvVENBLmNybDAMBgNVHRMBAf8EAjAAMCUGA1UdEgQeMByGGmh0
+		dHA6Ly9zZXJ2aWNlLnNhcC5jb20vVENTMA4GA1UdDwEB/wQEAwIGwDAdBgNVHQ4E
+		FgQUIzYVKF0Um5R3IELzIZj70M1W91kwHwYDVR0jBBgwFoAUlbez9Vje1bSzWEbg
+		8qbJeE69LXUwDQYJKoZIhvcNAQELBQADggEBABT6IIoJuz5pbiLNzLFj2WAlinJ4
+		3lxPBXO1w5niq3wuq5j7U99v/y/HZOdQjHnAvGz1gQ6o8g9a1dBIu/P2aIBODyNy
+		wBCs/XV/x+qgkYwxrLufK0vJF+XUp1zMZVuPq8tS/hEh9qLFtVqvnutf7s/gQaG4
+		6dLZSzSfjL6F0IPVWAfagh8PjCzREd1MOGvDIRpJHLCGFp+jHePled4k4h3ivDbi
+		RxzBwnU3MPLhlEb1hNpK2PwqpQ2qcXs1llb+LhNL56xNfwMKP1X2NNSEoK0+XFgD
+		YyTEOpqzykX6Z90Jk9SmjBvl1sMtQU5kPovvq6DJJ5/AOR5vrTGdEdEc5RE=
+		-----END CERTIFICATE-----
+		```
+
+		#### CA 証明局(下記の内容を転写)
+		```
+		-----BEGIN CERTIFICATE-----
+		MIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBh
+		MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+		d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+		QTAeFw0wNjExMTAwMDAwMDBaFw0zMTExMTAwMDAwMDBaMGExCzAJBgNVBAYTAlVT
+		MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j
+		b20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMIIBIjANBgkqhkiG
+		9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4jvhEXLeqKTTo1eqUKKPC3eQyaKl7hLOllsB
+		CSDMAZOnTjC3U/dDxGkAV53ijSLdhwZAAIEJzs4bg7/fzTtxRuLWZscFs3YnFo97
+		nh6Vfe63SKMI2tavegw5BmV/Sl0fvBf4q77uKNd0f3p4mVmFaG5cIzJLv07A6Fpt
+		43C/dxC//AH2hdmoRBBYMql1GNXRor5H4idq9Joz+EkIYIvUX7Q6hL+hqkpMfT7P
+		T19sdl6gSzeRntwi5m3OFBqOasv+zbMUZBfHWymeMr/y7vrTC0LUq7dBMtoM1O/4
+		gdW7jVg/tRvoSSiicNoxBN33shbyTApOB6jtSj1etX+jkMOvJwIDAQABo2MwYTAO
+		BgNVHQ8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUA95QNVbR
+		TLtm8KPiGxvDl7I90VUwHwYDVR0jBBgwFoAUA95QNVbRTLtm8KPiGxvDl7I90VUw
+		DQYJKoZIhvcNAQEFBQADggEBAMucN6pIExIK+t1EnE9SsPTfrgT1eXkIoyQY/Esr
+		hMAtudXH/vTBH1jLuG2cenTnmCmrEbXjcKChzUyImZOMkXDiqw8cvpOp/2PV5Adg
+		06O/nVsJ8dWO41P0jmP6P6fbtGbfYmbW0W5BjfIttep3Sp+dWOIrWcBAI+0tKIJF
+		PnlUkiaY4IBIqDfv8NZ5YBberOgOzW6sRBc4L0na4UU+Krk2U886UAb3LujEV0ls
+		YSEY1QSteDwsOoBrp+uvFRTp2InBuThs4pFsiv9kuXclVzDAGySj4dzp30d8tbQk
+		CAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=
+		-----END CERTIFICATE-----
+		```
+		![](https://camo.githubusercontent.com/c80dc8e1106792f4bc4fcf88c3b831a728d3a528/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f652f32504143582d317653576d7144476b66596d4f5f525253486a596c566b51773354533359754b622d6e4d526c532d4c6d7a6931327871785248305646686a715f55363262665a7936586f4d6f615a536c52415034764a2f7075623f773d39363026683d373230)
+		# ※川畑君ここの画像、SAP IoT向けの画像をとってください！！
+
+3. SORACOM Beam 設定
 
 ### <a name="create-package"></a> Create your own Package for Greenhouses
 
