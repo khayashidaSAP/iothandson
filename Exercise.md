@@ -38,7 +38,7 @@
 
 
 ### Wio LTE接続先変更
-1. [Create the device model](#create-device-model)
+1. [デバイスモデルの作成](#create-device-model)
 2. [デバイス証明書のダウンロード](#download-certificate)
 2. [Wio LTEの接続先変更](#update-wio-connection)
 3. [メッセージの送受信](#send-subscribe-message)
@@ -58,48 +58,67 @@
 
 
 
-### <a name="create-device-model"></a> Create the device model
-The Thing that we will create later, in order to work properly, needs to be attached to a device. In this section we will create it in the IoT Service cockpit, together with a sensor and some properties.
+### <a name="create-device-model"></a> デバイスモデルの作成
+本ハンズオンで作成するものは実行のためにデバイスに接続する必要があります。 このセクションでは、IoT Service Cockpitにセンサといくつかのプロパティを作成します。
 
-1. With Chrome, navigate to the **IoT Service cockpit** address provided by your instructor and login with the related credentials
+1. Chromeブラウザで **IoT Service cockpit**にアクセスします。URLとログイン情報はインストラクターが教えます。
 	![](images/041.png)
 
-1. Select **Capabilities** and click on the **+** sign to create a new Capability
+1. **Capabilities** セクションをクリックします。 **+** create a new Capabilityを押下してください。
 	![](images/042.png)
 
-1. Enter the name **gh\_climate\_ps\_xx** where xx must be replaced with your workstation ID. Then click on the **+** sign to create a new property
+1. **gh\_climate\_ps\_xx**　をNameに入力してください。 xx には割り振られたworkstation IDを入力ください。<br>
+次に、** + **記号をクリックして新しいプロパティを作成します
 	![](images/043.png)
 
-1. Enter
+	以下の項目を入力
 
 	| Property Name| Property Data Type |
 	| --------- | ----- |
 	| temperature | float |
 
-	and click again on the **+** sign to add again a new property
+	さらに"+"をクリックして新しいプロパティを追加してください。
 	![](images/044.png)
 
-1. Enter the following set of new properties and click on **Create**
+	1. 以下の項目を同じようにして作成してください。
 
 	| Property Name| Property Data Type |
 	| --------- | ----- |
-	| temperature | float |
 	| humidity | float |
 	| light | integer |
 	| door\_closed | boolean |
 
 	![](images/045.png)
 
-1. Select the **Sensor Types** item in the left-hand menu and click on the **+** sign to create a new sensor type
+1. **Capabilities** セクションを再びクリックします。 **+** create a new Capabilityを押下してください。
+	![](images/soracom/create_device_4.png)
+
+
+1. **gh\_command\_ps\_xx**　をNameに入力してください。 xx には割り振られたworkstation IDを入力ください。<br>
+	次に、** + **記号をクリックして新しいプロパティを作成します
+	![](images/soracom/create_device_5.png)
+
+		以下の項目を入力
+
+		| Property Name| Property Data Type |
+		| --------- | ----- |
+		| message | string |
+
+
+6. **Sensor Types** アイテムを左側のメニューから選択し、 **+** create a new sensor typeをクリックしてください。
 	![](images/046.png)
 
-1. Enter **gh\_climate\_sensor\_typ\_xx** for the **Name** (remember to replace **xx** with your workstation ID), select the **gh\_climate\_ps\_xx** capability you have created earlier and set **measure** as its Type. Then click on **Create**
+1. **gh\_climate\_sensor\_typ\_xx** を **Name** (remember to replace **xx** with your workstation ID)入力し、 capabilitiesから **gh\_climate\_ps\_xx**　を、Typeを **measure** を選んで選択してください。その後 **Create** をクリック。
 	![](images/047.png)
 
-1. On the left-hand menu, select **Devices** and click again on the **+** sign to create a new Device
+1. **+** create a new sensor typeを再びクリックし、capabilitiesから **gh\_command\_ps\_xx**　を、Typeを **command** を選んで選択してください。その後 **Create** をクリック。
+![](images/soracom/create_device_7.png)
+
+
+1. 左サイドメニューから **Devices** を選択しクリック。 **+**  を選択し新しい Deviceを追加します。
 	![](images/048.png)
 
-1. Enter the following properties and click on **Create**
+1. 以下の項目を入力し、 **Create**　をクリック。
 
 	| Parameter| Value |
 	| --------- | ----- |
