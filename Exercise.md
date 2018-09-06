@@ -309,8 +309,34 @@ IMSI 付与: ON
 	2. API Documentationを開く
 	 - 左メニューの[Useful Link] -> [API Docs]を選択
 	![](images/soracom/sendsubscrib_3_2.png)
-	3. AP
-	4. [Devices] -> [/devices/{deviceId}/commands]を開く
+	3. API Docsのページから[Devices] -> [/devices/{deviceId}/commands]を開く
+	![](images/soracom/send_subscribe_message_3_3.png)
+		1. Try It Outをクリックし、編集可能な状態にする
+			![](images/soracom/send_subscribe_message_3_3_1.png)
+			##### 編集可能状態
+			![](images/soracom/send_subscribe_message_3_3_2.png)
+		2. deviceidとbodyに以下の内容を入力する。
+		 - #### deviceid
+			 - ***IoT Serviceに登録したDeviceのID***
+		 - #### body
+			```
+			{
+			  "capabilityId": "<登録したsensor-tyｐのcapabilityid>",
+			  "command": {"message": "#111111"},
+			  "sensorId": "<登録したdeviceのsensor_typのid>"
+			}
+			```
+			※セットするIdの情報は以下を参照<p>
+			***deviceId***
+
+			***sensorId***
+
+			***capabilityId***
+
+		3. Executeをクリック
+		![](images/soracom/send_subscribe_message_3_3_2_3.png)
+		4. Reponse Code 200が返され、以下のようなメッセージが戻って来れば配信完了
+		![](images/soracom/send_subscribe_message_3_3_2_4.png)
 
 
 
