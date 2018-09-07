@@ -315,7 +315,7 @@ IMSI 付与: ON
 		 ![](images/soracom/send_subscribe_message_3_2_3_Authorize_logon.png)
 		2. API Docsのページから[Devices] -> [/devices/{deviceId}/commands]を開く
 
-	![](images/soracom/send_subscribe_message_3_3.png)
+	  ![](images/soracom/send_subscribe_message_3_3.png)
 		3. Try It Outをクリックし、編集可能な状態にする
 			![](images/soracom/send_subscribe_message_3_3_1.png)
 			##### 編集可能状態
@@ -332,16 +332,14 @@ IMSI 付与: ON
 			}
 			```
 			※セットするIdの情報は以下を参照<p>
-			***deviceId**<br>
-			IoT Service Cockpitの左側メニューから[Devices] > 右側のDevicesから[gh_climate_device_xx]のID
+			**deviceId** ：IoT Service Cockpitの左側メニューから[Devices] > 右側のDevicesから[gh_climate_device_xx]のID
 			![](images/soracom/send_subscribe_message_3_3_2_deviceid.png)
 
-			***sensorId**<br>
-			[gh_climate_device_xx]をクリックし[Snsors] > [gh_climate_sensor_xx]のID
+
+			**sensorId** ：[gh_climate_device_xx]をクリックし[Snsors] > [gh_climate_sensor_xx]のID
 			![](images/soracom/send_subscribe_message_3_3_2_sensorid.png)
 
-			***capabilityId**<br>
-			[gh_climate_sensor_xx]をクリックし[Capabilities]のcommandのID
+			**capabilityId**	：[gh_climate_sensor_xx]をクリックし[Capabilities]のcommandのID
 			![](images/soracom/send_subscribe_message_3_3_2_capabilityid.png)
 
 		5. Executeをクリック
