@@ -321,9 +321,9 @@ IMSI 付与: ON
 			##### 編集可能状態
 			![](images/soracom/send_subscribe_message_3_3_2.png)
 		4. deviceidとbodyに以下の内容を入力する。
-		 #### deviceid
+		 #### deviceid<br>
 			 	**IoT Serviceに登録したDeviceのID**
-		 #### body
+		 #### body<br>
 		 ```
 		 {
 			 "capabilityId": "<登録したsensor-tyｐのcapabilityid>",
