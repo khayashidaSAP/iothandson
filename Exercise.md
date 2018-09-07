@@ -317,12 +317,13 @@ IMSI 付与: ON
 
 	  ![](images/soracom/send_subscribe_message_3_3.png)
 		3. Try It Outをクリックし、編集可能な状態にする
-			![](images/soracom/send_subscribe_message_3_3_1.png)
-			##### 編集可能状態
-			![](images/soracom/send_subscribe_message_3_3_2.png)
-		1. deviceidとbodyに以下の内容を入力する。
+		![](images/soracom/send_subscribe_message_3_3_1.png)
+		##### 編集可能状態<br>
+		![](images/soracom/send_subscribe_message_3_3_2.png)
+
+		4. deviceidとbodyに以下の内容を入力する。
 		  #### deviceid<br>
-			 	IoT Serviceに登録したDeviceのID <br>
+			 	IoT Serviceに登録したDeviceのID<br>
 		  #### body<br>
 		 ```
 		 {
