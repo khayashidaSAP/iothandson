@@ -313,16 +313,16 @@ IMSI 付与: ON
 		- [Authorize]をクリックし、IoT Service Cockpitのユーザ情報を入力
   	![](images/soracom/send_subscribe_message_3_2_3_Authorize.png)
 		 ![](images/soracom/send_subscribe_message_3_2_3_Authorize_logon.png)
-		2. API Docsのページから[Devices] -> [/devices/{deviceId}/commands]を開く
+		2. API Docsのページから[Devices] -> [/devices/{deviceId}/commands]
 
 	  ![](images/soracom/send_subscribe_message_3_3.png)
-		3. Try It Outをクリックし、編集可能な状態にする
-		![](images/soracom/send_subscribe_message_3_3_1.png)<br>
+	1. Try It Outをクリックし、編集可能な状態にする
+		![](images/soracom/send_subscribe_message_3_3_1.png)
 
-		**編集可能状態**<br>
-		![](images/soracom/send_subscribe_message_3_3_2.png)<br>
+		**編集可能状態**
+		![](images/soracom/send_subscribe_message_3_3_2.png)
 
-		4. deviceidとbodyに以下の内容を入力する。
+	1. deviceidとbodyに以下の内容を入力する。
 		  #### deviceid<br>
 			 	IoT Serviceに登録したDeviceのID<br>
 		  #### body<br>
