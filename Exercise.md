@@ -322,15 +322,15 @@ IMSI 付与: ON
 			![](images/soracom/send_subscribe_message_3_3_2.png)
 		4. deviceidとbodyに以下の内容を入力する。
 		 #### deviceid
-			 - ***IoT Serviceに登録したDeviceのID**
+			 - **IoT Serviceに登録したDeviceのID**
 		 #### body
-				```
+		```
 			{
 			  "capabilityId": "<登録したsensor-tyｐのcapabilityid>",
 			  "command": {"message": "#111111"},
 			  "sensorId": "<登録したdeviceのsensor_typのid>"
 			}
-				```
+		```
 			###### ※セットするIdの情報は以下を参照
 			- deviceId ：IoT Service Cockpitの左側メニューから[Devices] > 右側のDevicesから[gh_climate_device_xx]のID
 			![](images/soracom/send_subscribe_message_3_3_2_deviceid.png)
