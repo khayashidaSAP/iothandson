@@ -332,9 +332,8 @@ IMSI 付与: ON
 			}
 			```
 			※セットするIdの情報は以下を参照<p>
-			**deviceId** ：IoT Service Cockpitの左側メニューから[Devices] > 右側のDevicesから[gh_climate_device_xx]のID
-			![](images/soracom/send_subscribe_message_3_3_2_deviceid.png)
 
+			**deviceId** ：IoT Service Cockpitの左側メニューから[Devices] > 右側のDevicesから[gh_climate_device_xx]のID
 
 			**sensorId** ：[gh_climate_device_xx]をクリックし[Snsors] > [gh_climate_sensor_xx]のID
 			![](images/soracom/send_subscribe_message_3_3_2_sensorid.png)
@@ -346,8 +345,6 @@ IMSI 付与: ON
 		![](images/soracom/send_subscribe_message_3_3_2_3.png)
 		6. Reponse Code 200が返され、以下のようなメッセージが戻って来れば配信完了
 		![](images/soracom/send_subscribe_message_3_3_2_4.png)
-
-
 
 ### <a name="create-package"></a> Create your own Package for Greenhouses
 
