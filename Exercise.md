@@ -324,7 +324,9 @@ IMSI 付与: ON
 
 	1. deviceidとbodyに以下の内容を入力する。
 		  #### deviceid
+			```
 			 	IoT Serviceに登録したDeviceのID
+				```
 		  #### body
 		 ```
 		 {
