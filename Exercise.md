@@ -301,25 +301,26 @@ IMSI 付与: ON
 ### <a name="send-subscribe-message"></a> メッセージの送受信
 1. Arudino IDEを起動する
 2. Arudino IDEへのスケッチの登録とメッセージ送信
-	1-1. Aurdinoソースコードを修正
-	1-2. ソースコードをコンパイル
-	1-3. Wio LTEへデプロイと実行
+	1. Aurdinoソースコードを修正
+	2. ソースコードをコンパイル
+	3. Wio LTEへデプロイと実行
 3. デバイスへのTopic送信（メッセージ受信）
-	3-1. IoT Serviceへログイン
-	3-2. API Documentationを開く
+	1. IoT Serviceへログイン
+	2. API Documentationを開く
 	 - 左メニューの[Useful Link] -> [API Docs]を選択
 	![](images/soracom/sendsubscrib_3_2.png)
-		3-2-1. API Documentationにログオンする
+		1. API Documentationにログオンする
 		- [Authorize]をクリックし、IoT Service Cockpitのユーザ情報を入力
   	![](images/soracom/send_subscribe_message_3_2_3_Authorize.png)
 		 ![](images/soracom/send_subscribe_message_3_2_3_Authorize_logon.png)
-	3-3. API Docsのページから[Devices] -> [/devices/{deviceId}/commands]を開く
+		2. API Docsのページから[Devices] -> [/devices/{deviceId}/commands]を開く
+
 	![](images/soracom/send_subscribe_message_3_3.png)
-		3-3-1. Try It Outをクリックし、編集可能な状態にする
+		3. Try It Outをクリックし、編集可能な状態にする
 			![](images/soracom/send_subscribe_message_3_3_1.png)
 			##### 編集可能状態
 			![](images/soracom/send_subscribe_message_3_3_2.png)
-		3-3-2. deviceidとbodyに以下の内容を入力する。
+		4. deviceidとbodyに以下の内容を入力する。
 		 - #### deviceid
 			 - ***IoT Serviceに登録したDeviceのID***
 		 - #### body
@@ -343,9 +344,9 @@ IMSI 付与: ON
 			[gh_climate_sensor_xx]をクリックし[Capabilities]のcommandのID
 			![](images/soracom/send_subscribe_message_3_3_2_capabilityid.png)
 
-		3-3-3. Executeをクリック
+		5. Executeをクリック
 		![](images/soracom/send_subscribe_message_3_3_2_3.png)
-		3-3-4. Reponse Code 200が返され、以下のようなメッセージが戻って来れば配信完了
+		6. Reponse Code 200が返され、以下のようなメッセージが戻って来れば配信完了
 		![](images/soracom/send_subscribe_message_3_3_2_4.png)
 
 
