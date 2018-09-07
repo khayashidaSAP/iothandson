@@ -309,6 +309,10 @@ IMSI 付与: ON
 	2. API Documentationを開く
 	 - 左メニューの[Useful Link] -> [API Docs]を選択
 	![](images/soracom/sendsubscrib_3_2.png)
+		2. API Documentationにログオンする
+		- [Authorize]をクリックし、IoT Service Cockpitのユーザ情報を入力
+  	![](images/soracom/send_subscribe_message_3_2_3_Authorize.png)
+		 ![](images/soracom/send_subscribe_message_3_2_3_Authorize_logon.png)
 	3. API Docsのページから[Devices] -> [/devices/{deviceId}/commands]を開く
 	![](images/soracom/send_subscribe_message_3_3.png)
 		1. Try It Outをクリックし、編集可能な状態にする
