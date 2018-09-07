@@ -313,7 +313,7 @@ IMSI 付与: ON
 		- [Authorize]をクリックし、IoT Service Cockpitのユーザ情報を入力
   	![](images/soracom/send_subscribe_message_3_2_3_Authorize.png)
 		 ![](images/soracom/send_subscribe_message_3_2_3_Authorize_logon.png)
-		2. API Docsのページから[Devices] -> [/devices/{deviceId}/commands]
+	1. API Docsのページから[Devices] -> [/devices/{deviceId}/commands]
 
 	  ![](images/soracom/send_subscribe_message_3_3.png)
 	1. Try It Outをクリックし、編集可能な状態にする
