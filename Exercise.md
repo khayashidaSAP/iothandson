@@ -327,11 +327,17 @@ IMSI 付与: ON
 			}
 			```
 			※セットするIdの情報は以下を参照<p>
-			***deviceId***
+			***deviceId**<br>
+			IoT Service Cockpitの左側メニューから[Devices] > 右側のDevicesから[gh_climate_device_xx]のID
+			![](images/soracom/send_subscribe_message_3_3_2_deviceid.png)
 
-			***sensorId***
+			***sensorId**<br>
+			[gh_climate_device_xx]をクリックし[Snsors] > [gh_climate_sensor_xx]のID
+			![](images/soracom/send_subscribe_message_3_3_2_sensorid.png)
 
-			***capabilityId***
+			***capabilityId**<br>
+			[gh_climate_sensor_xx]をクリックし[Capabilities]のcommandのID
+			![](images/soracom/send_subscribe_message_3_3_2_capabilityid.png)
 
 		3. Executeをクリック
 		![](images/soracom/send_subscribe_message_3_3_2_3.png)
