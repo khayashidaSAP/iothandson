@@ -325,22 +325,22 @@ IMSI 付与: ON
 		- deviceid　：IoT Serviceに登録したDeviceのID
 
 		- body　：以下参照
- 	```
- {
-	 "capabilityId": "<登録したsensor-tyｐのcapabilityid>",
-	 "command": {"message": "#111111"},
-	 "sensorId": "<登録したdeviceのsensor_typのid>"
- }
- ```
+ 		```
+ 		{
+	 		"capabilityId": "<登録したsensor-tyｐのcapabilityid>",
+	 		"command": {"message": "#111111"},
+	 		"sensorId": "<登録したdeviceのsensor_typのid>"
+ 		}
+ 		```
 
 		#### セットするIdの情報は以下を参照
-		- deviceId ：IoT Service Cockpitの左側メニューから[Devices] > 右側のDevicesから[gh_climate_device_xx]のID
+		* deviceId ：IoT Service Cockpitの左側メニューから[Devices] > 右側のDevicesから[gh_climate_device_xx]のID
 	![](images/soracom/send_subscribe_message_3_3_2_deviceid.png)
 
-		- sensorId ：[gh_climate_device_xx]をクリックし[Snsors] > [gh_climate_sensor_xx]のID
+		* sensorId ：[gh_climate_device_xx]をクリックし[Snsors] > [gh_climate_sensor_xx]のID
 	![](images/soracom/send_subscribe_message_3_3_2_sensorid.png)
 
-		- capabilityId ：[gh_climate_sensor_xx]をクリックし[Capabilities]のcommandのID
+		* capabilityId ：[gh_climate_sensor_xx]をクリックし[Capabilities]のcommandのID
 	![](images/soracom/send_subscribe_message_3_3_2_capabilityid.png)
 
 	4. Executeをクリック
