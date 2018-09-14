@@ -123,8 +123,8 @@
 	| Parameter| Value |
 	| --------- | ----- |
 	| Name | gh\_climate\_device\_xx (remember to replace **xx** with your workstation ID)|
-	| Gateway | REST Network |
-	![](images/049.png)
+	| Gateway | MQTT Network |
+	![](images/049_2.png)
 
 1. Select the **Sensors** tab and click on the **+** sign to add a new sensor
 	![](images/050.png)
