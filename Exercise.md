@@ -300,11 +300,30 @@
 ### <a name="send-subscribe-message"></a> メッセージの送受信
 1. Arudino IDEを起動する(files/postman_json_files.zip?raw=true)
 2. [Arudinoソースコードをダウンロードする](src/mqtt-client/mqtt-client.ino?raw=true)
-3. Arudino IDEへのスケッチの登録とメッセージ送信
-	1. Aurdinoソースコードを修正
-	2. ソースコードをコンパイル
-	3. Wio LTEへデプロイと実行
-3. デバイスへのTopic送信（メッセージ受信）
+3. Arudino IDEから[ファイル] → [開く]でmqtt_client.inoのソースコードを開き以下を修正
+	```c
+	// 定数
+	#define capabilityAlternateId  "<IoT ServiceのcapabilityAlternateId>"
+	#define sensorAlternateId      "<IoT ServiceのsensorAlternateId>"
+
+	#define APN               "soracom.io"
+	#define USERNAME          "sora"
+	#define PASSWORD          "sora"
+
+	#define MQTT_SERVER_HOST  "beam.soracom.io"
+	#define MQTT_SERVER_PORT  (1883)
+
+	#define ID                "<IoT ServiceのデバイスID>"
+	#define OUT_TOPIC         "measures/<IoT ServiceのdeviceAlternateId>"
+	```
+3.必要なライブラリを追加
+3. ソースをマイコンボードをへ書き込み
+	1. Wio LteをDFUモードに切り替える
+	2. マイコンボードに書き込む
+	3. Wio LTEを通常モードに切り替える
+	4. シリアルモニタで動きを確認
+4.
+5. デバイスへのTopic送信（メッセージ受信）
 	1. IoT Serviceへログイン
 	2. API Documentationを開く
 	 - 左メニューの[Useful Link] -> [API Docs]を選択
@@ -347,6 +366,7 @@
 	![](images/soracom/send_subscribe_message_3_3_2_3.png)
 	6. Reponse Code 200が返され、以下のようなメッセージが戻って来れば配信完了
 	![](images/soracom/send_subscribe_message_3_3_2_4.png)
+	7. Wio LteのLEDが点灯していることを確認
 
 ### <a name="create-package"></a> Create your own Package for Greenhouses
 
