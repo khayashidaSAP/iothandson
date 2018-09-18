@@ -101,8 +101,8 @@
 		以下の項目を入力
 
 		| Property Name| Property Data Type |
-		| --------- | ----- |
-		| message | string |
+		| ------------ | ------------------ |
+		| message      | string             |
 
 
 6. **Sensor Types** アイテムを左側のメニューから選択し、 **+** create a new sensor typeをクリックしてください。
