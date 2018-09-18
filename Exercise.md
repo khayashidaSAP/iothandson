@@ -331,7 +331,8 @@
 	4. シリアルモニタで動きを確認 [右上のレンズボタンでモニターが開く①]
 	![](images/soracom/Arduino_serial_monitor.png)
 	正常にメッセージが配信出来ていることを確認する②<p>
-	5. IoT Service Cockpitでデータが送信されていることを確認する [Device] → [gh_climate_device_xx] → [Data Visualization]から以下を選択
+	5. IoT Service Cockpitでデータが送信されていることを確認する
+		###### [Device] → [gh_climate_device_xx] → [Data Visualization]から以下を選択
 		- Sensor：gh_climate_sensor_typ_xx
 		- Capability：gh_climate_ps_xx
 		- Properties：temperature、humidity、light
