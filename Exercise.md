@@ -298,8 +298,9 @@
 
 
 ### <a name="send-subscribe-message"></a> メッセージの送受信
-1. Arudino IDEを起動する
-2. Arudino IDEへのスケッチの登録とメッセージ送信
+1. Arudino IDEを起動する(files/postman_json_files.zip?raw=true)
+2. [Arudinoソースコードをダウンロードする](src/mqtt-client/mqtt-client.ino?raw=true)
+3. Arudino IDEへのスケッチの登録とメッセージ送信
 	1. Aurdinoソースコードを修正
 	2. ソースコードをコンパイル
 	3. Wio LTEへデプロイと実行
