@@ -298,7 +298,7 @@
 
 
 ### <a name="send-subscribe-message"></a> メッセージの送受信
-1. Arudino IDEを起動する(files/postman_json_files.zip?raw=true)
+1. Arudino IDEを起動する
 2. [Arudinoソースコードをダウンロードする](src/mqtt-client/mqtt-client.ino?raw=true)
 3. Arudino IDEから[ファイル] → [開く]でmqtt_client.inoのソースコードを開き以下を修正
 	```c
@@ -316,13 +316,22 @@
 	#define ID                "<IoT ServiceのデバイスID>"
 	#define OUT_TOPIC         "measures/<IoT ServiceのdeviceAlternateId>"
 	```
-3.必要なライブラリを追加
+3. pubsubclient、ArduinoJsonを追加する
+###### [スケッチ] → [ライブラリをインクルード] → [ライブラリ管理]を開く
+ *mqtt pubusb* で検索窓で検索しインストール
+ ![](images/soracom/Arduino_pubsub_install.png)<p>
+ *ArduinoJson* で検索窓で検索しインストール（バージョンは *5.13.1* を選択）
+ ![](images/soracom/Arduino_json_install.png)<p>
+
 3. ソースをマイコンボードをへ書き込み
 	1. Wio LteをDFUモードに切り替える
 	2. マイコンボードに書き込む
+	![](images/soracom/Arduino_build_monitor.png)
 	3. Wio LTEを通常モードに切り替える
-	4. シリアルモニタで動きを確認
-4.
+	4. シリアルモニタで動きを確認 [右上のレンズボタンでモニターが開く①]
+	![](images/soracom/Arduino_serial_monitor.png)
+	正常にメッセージが配信出来ていることを確認する②<p>
+
 5. デバイスへのTopic送信（メッセージ受信）
 	1. IoT Serviceへログイン
 	2. API Documentationを開く
