@@ -383,6 +383,7 @@
 	6. Reponse Code 200が返され、以下のようなメッセージが戻って来れば配信完了
 	![](images/soracom/send_subscribe_message_3_3_2_4.png)
 	7. Wio LteのLEDが点灯していることを確認
+	![](images/soracom/send_subscribe_message_wio.jpg)
 
 ### <a name="create-package"></a> Create your own Package for Greenhouses
 
