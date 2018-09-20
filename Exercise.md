@@ -37,7 +37,7 @@
 * A remote desktop connection app to access the remote system
 
 
-### Wio LTE接続先変更
+### IoTサービス/アプリケーションのセットアップとメッセージ送受信
 1. [デバイスモデルの作成](#create-device-model)
 2. [デバイス証明書のダウンロード](#download-certificate)
 2. [Wio LTEの接続先変更](#update-wio-connection)
