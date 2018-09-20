@@ -318,7 +318,7 @@
 	```
 3. pubsubclient、ArduinoJsonを追加する
 ###### [スケッチ] → [ライブラリをインクルード] → [ライブラリ管理]を開く
- *mqtt pubusb* で検索窓で検索しインストール
+ *mqtt pubusb* で検索窓で検索しインストール(バージョンは *2.6.0* を選択)
  ![](images/soracom/Arduino_pubsub_install.png)<p>
  *ArduinoJson* で検索窓で検索しインストール（バージョンは *5.13.1* を選択）
  ![](images/soracom/Arduino_json_install.png)<p>
