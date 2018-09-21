@@ -330,13 +330,15 @@
 ###### [スケッチ] → [ライブラリをインクルード] → [ライブラリ管理]を開く
  *mqtt pubusb* で検索窓で検索しインストール(バージョンは *2.6.0* を選択)
  ![](images/soracom/Arduino_pubsub_install.png)<p>
+
+ *ArduinoJson* で検索窓で検索しインストール（バージョンは *5.13.1* を選択）
+ ![](images/soracom/Arduino_json_install.png)<p>
+
  #### インストール後にPubSubclient.hのMQTT_MAX_PACKET_SIZEを512へ変更
  ![](images/soracom/pubsubclient_mqtt_size.png)
  PubSubclient.hはスケッチブックの保存場所に入っています。<br>
  Windowsの場合にはArduino IDEから上のメニューの[ファイル] → [環境設定]、Macの場合には上のメニューから[Arduino] → [preferences...] を開きスケッチブックの保存場所のパスをエクスプローラまたはFinderで開き、libralies/PubSubclient/srcフォルダ
 
- *ArduinoJson* で検索窓で検索しインストール（バージョンは *5.13.1* を選択）
- ![](images/soracom/Arduino_json_install.png)<p>
 
 3. ソースをマイコンボードをへ書き込み
 	1. Wio LteをDFUモードに切り替える
