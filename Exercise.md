@@ -64,7 +64,7 @@
 1. Chromeブラウザで **IoT Service cockpit**にアクセスします。URLとログイン情報はインストラクターが教えます。
 	![](images/041.png)
 
-2. テナント(Root )を選択します。
+2. テナント(Root Tenant)を選択します。
 	![](images/soracom/041_2.png)
 
 1. **Capabilities** セクションをクリックします。 **+** create a new Capabilityを押下してください。
