@@ -171,7 +171,7 @@
 	1. ターミナル(Mac)、コマンドプロンプト(Windows)を起動し、ダウンロードした証明書へ移動する。<br>
 
 	2. OpenSSLコマンドでダウンロードしたpemファイルからパスフレーズを取り除く<br>
-	<i>$ openssl rsa -in <ダウンロードしたpemファイル> -out <パスフレーズを外したpemファイル></i>
+	<i>$ openssl rsa -in <ダウンロードしたpemファイル> -out gh_climate_device_certificate_nopass.pem</i>
 	![](images/soracom/updatewioconnection_2_1.png)
 	※コマンド入力後にパスフレーズの入力を求められるので、先ほど書きとめたパスワードを入力
 
@@ -187,7 +187,7 @@
 		・概要: eu10.cp.iot.sap 接続用証明書<br>
 		・種別: X.509 証明書 (これを選択すると、下記を入力するテキストボックスが増えます)<br>
 
-		#### 秘密鍵 (先ほどパスフレーズを取り除いたpemファイルの内容)
+		#### 秘密鍵 (先ほどパスワードをっと利除いた **gh_climate_device_certificate_nopass.pem** ファイルの内容)
 		```
 		-----BEGIN RSA PRIVATE KEY-----
 		MIIEoAIBAAKCAQEAmz6IonHiJkkqnKdBW9wfKbbd+C3oASszYOzChTnOembiUWqK
