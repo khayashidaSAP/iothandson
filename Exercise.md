@@ -123,7 +123,7 @@
 	| Parameter| Value |
 	| --------- | ----- |
 	| Name | gh\_climate\_device\_xx (remember to replace **xx** with your workstation ID)|
-	| Gateway | MQTT Network |
+	| Gateway | IoT Gateway MQTT |
 	![](images/049_2.png)
 
 1. Select the **Sensors** tab and click on the **+** sign to add a new sensor
@@ -143,9 +143,6 @@
 
 	### <a name="download-certificate"></a> デバイス証明書のダウンロード
 	SORACOM経由でメッセージを送受信するために接続先登録を行います。その際にIoT Serviceではクライアント証明書を利用した認証を行いますので、接続先を変更する前に事前に登録したデバイスの証明書を取得します。
-
-	1. IoT Service cockpitでユーザとパスワードを入力してログインします
-		![](images/108.png)
 
 	1. 左側のメニューから**Devices**を選択しNameとtypeを検索します。 検索ボックスに登録したデバイス名を入力 **gh\_climate\_device\_xx** (where **xx** is your workstation ID)
 		![](images/109.png)
@@ -218,7 +215,7 @@
 		-----END RSA PRIVATE KEY-----
 		```
 
-		#### 証明書 (パスフレーズを取り除く前のpemファイルに記載されている内容)
+		#### 証明書 (パスフレーズを取り除く前のpemファイルの下部に記載されているBEGIN CERTIFICATEからEND CERTIFICATE内容)
 		```
 		-----BEGIN CERTIFICATE-----
 		MIIESDCCAzCgAwIBAgIOMXZgtLw91F4QAQIR7QgwDQYJKoZIhvcNAQELBQAwVjEL
@@ -313,9 +310,17 @@
 	#define MQTT_SERVER_HOST  "beam.soracom.io"
 	#define MQTT_SERVER_PORT  (1883)
 
-	#define ID                "<IoT ServiceのデバイスID>"
+	#define ID                "<IoT ServiceのdeviceAlternateId>"
 	#define OUT_TOPIC         "measures/<IoT ServiceのdeviceAlternateId>"
+	#define IN_TOPIC         "commands/<IoT ServiceのdeviceAlternateId>"
 	```
+	capability_alternate_Idの取得
+	![](images/soracom/Arduino_pubsub_l.png)
+	sensorAlternateIdの取得
+	![](images/soracom/Arduino_pubsub_instl.png)
+	deviceAlternateIdの取得
+	![](images/soracom/Arduino_pubsub_insta.png)
+
 3. pubsubclient、ArduinoJsonを追加する
 ###### [スケッチ] → [ライブラリをインクルード] → [ライブラリ管理]を開く
  *mqtt pubusb* で検索窓で検索しインストール(バージョンは *2.6.0* を選択)
@@ -340,13 +345,14 @@
 	シリアルモニターで送信したデータが届いていることを確認
 
 5. デバイスへのTopic送信（メッセージ受信）
-	1. IoT Serviceへログイン
-	2. API Documentationを開く
-	 - 左メニューの[Useful Link] -> [API Docs]を選択
+	2. Core APIを開く
+	 - 左メニューの[Useful Link] -> [Core API]を選択
 	![](images/soracom/sendsubscrib_3_2.png)
-		1. API Documentationにログオンする
+		1. Core APIにログオンする
 		- [Authorize]をクリックし、IoT Service Cockpitのユーザ情報を入力
   	![](images/soracom/send_subscribe_message_3_2_3_Authorize.png)
+		 ![](images/soracom/send_subscribe_message_3_2_3_Authorize_logon.png)
+		 AuthoriedになればOK
 		 ![](images/soracom/send_subscribe_message_3_2_3_Authorize_logon.png)
 		1. API Docsのページから[Devices] -> [/devices/{deviceId}/commands]
 	  ![](images/soracom/send_subscribe_message_3_3.png)
