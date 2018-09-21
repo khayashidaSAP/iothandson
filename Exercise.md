@@ -16,7 +16,7 @@
 ## 対象者
 
 * 開発者
-* SAP Leonardo and Machine Learningに興味がある方
+* SAP Leonardo IoTに興味がある方
 
 
 ## ゴール
@@ -163,7 +163,7 @@
 		![](images/113.png)
 
 ### <a name="update-wio-connection"></a> Wio LTEの接続先変更
-1. Wio LTEの淵源をオフにする<br>
+1. Wio LTEの電源をオフにする<br>
 	Wio LTE の microUSB ケーブルを抜き、電源を OFF にしてください<br>
 	※いきなり抜いてOKです。また、すでに OFF になっている場合は次に進んでください<p>
 
@@ -298,13 +298,13 @@
 
 
 ### <a name="send-subscribe-message"></a> メッセージの送受信
-1. Arudino IDEを起動する
-2. [Arudinoソースコードをダウンロードする](src/mqtt-client/mqtt-client.ino?raw=true)
-3. Arudino IDEから[ファイル] → [開く]でmqtt_client.inoのソースコードを開き以下を修正
+1. Arduino IDEを起動する
+2. [Arduinoソースコードをダウンロードする](src/mqtt-client/mqtt-client.ino?raw=true)
+3. Arduino IDEから[ファイル] → [開く]でmqtt_client.inoのソースコードを開き以下を修正
 	```c
 	// 定数
-	#define capabilityAlternateId  "<IoT ServiceのcapabilityAlternateId>"
-	#define sensorAlternateId      "<IoT ServiceのsensorAlternateId>"
+	#define capabilityAlternateId  "<以下の手順にあるcapabilityAlternateId>"
+	#define sensorAlternateId      "<以下の手順にあるsensorAlternateId>"
 
 	#define APN               "soracom.io"
 	#define USERNAME          "sora"
@@ -313,16 +313,18 @@
 	#define MQTT_SERVER_HOST  "beam.soracom.io"
 	#define MQTT_SERVER_PORT  (1883)
 
-	#define ID                "<IoT ServiceのdeviceAlternateId>"
-	#define OUT_TOPIC         "measures/<IoT ServiceのdeviceAlternateId>"
-	#define IN_TOPIC         "commands/<IoT ServiceのdeviceAlternateId>"
+	#define ID                "<以下の手順にあるのdeviceAlternateId>"
+	#define OUT_TOPIC         "measures/上のIDと同じ値をセット>"
+	#define IN_TOPIC         "commands/上のIDと同じ値をセット>"
 	```
-	capability_alternate_Idの取得
-	![](images/soracom/Arduino_pubsub_l.png)
-	sensorAlternateIdの取得
-	![](images/soracom/Arduino_pubsub_instl.png)
-	deviceAlternateIdの取得
-	![](images/soracom/Arduino_pubsub_insta.png)
+
+ ##### 設定項目取得手順
+ -  deviceAlternateIdとsensorAlternateIdの取得 左メニューの[Device] → [gh_climate_device_xx]から取得
+ ![](images/soracom/send_device_alternateId.png)
+ ![](images/soracom/send_device_sensortype_alternateId.png)
+ -  capability_alternate_Idの取得 [Sensor Type] → [Alternate ID]取得
+![](images/soracom/send_capability_alternateId_1.png)
+![](images/soracom/send_capability_alternateId_2.png)
 
 3. pubsubclient、ArduinoJsonを追加する
 ###### [スケッチ] → [ライブラリをインクルード] → [ライブラリ管理]を開く
