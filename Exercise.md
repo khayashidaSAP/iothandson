@@ -590,7 +590,7 @@ In this section you are going to learn how to create a Thing using the SAP IoT A
 	| --------- | ----- |
 	| Name | greenhouse\_xx |
 	| Description | Greenhouse xx |
-	| Authorization Group | the one starting with "6b569" |
+	| Authorization Group | TENANT_ROOT_coil-tokyo1 |
 	| Provider | None |
 
 	then click on **Save**
