@@ -441,7 +441,7 @@
 1. Click on the "**cube**" button to change package
 	![](images/008.png)
 
-1. Search for "pw.greenhouse.pk" and you should be able to find your package named **pw.greenhouse.pkg.xx**, where **xx** must be replace with your workstation ID. Click on your package name
+1. Search for "yy.greenhouse.pk" and you should be able to find your package named **yy.greenhouse.pkg.xx**, where **xx** must be replace with your workstation ID. Click on your package name
 	![](images/009.png)
 
 1. Once you have selected your package and you have verified that it's the correct one, click on the "**+**" symbol in the master view. This will allow you to create a new property set
@@ -998,7 +998,7 @@ This is an OPTIONAL part of the exercise. There is another way to create an IoT 
 1. Open the drop down list
 	![](images/146.png)
 
-1. Enter "pw.greenhouse.pk" in the search box and select the Thing Type you have created earlier. You need to choose the one with your workstation ID. Then click **OK**
+1. Enter "yy.greenhouse.pk" in the search box and select the Thing Type you have created earlier. You need to choose the one with your workstation ID. Then click **OK**
 	![](images/147.png)
 
 1. Select all the common property sets and click **OK**
