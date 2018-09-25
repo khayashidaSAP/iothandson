@@ -411,7 +411,7 @@
 1. Do not save the password in your browser
 	![](images/002.png)
 
-1. A Launchpad opens up: click on the **Package Manager** tile
+1. A Launchpad opens up: click on the **Packages Defining Containers** tile
 	![](images/003.png)
 
 1. Click on the "**+**" sign to create a new package
@@ -421,7 +421,7 @@
 
 	| Parameter | Value|
 	| --- | --- |
-	| Name| YY.greenhouse.pkg.XX |
+	| Name| yy.greenhouse.pkg.XX |
 	| Description | Power Week Greenhouse Package XX |
 	| Scope | Private |
 
