@@ -746,7 +746,7 @@ In order to perform this step you need to have Postman Interceptor installed in 
 ### <a name="build-app"></a> Build a SAPUI5 app with SAP Web IDE
 In this section you will build a simple SAPUI5 app which allows you to monitor your greenhouses (in this case you have only one) and examine data its connected sensors generate.
 
-1. Open **SAP Web IDE** using the URL provided by your instructor and logon using the related credentials
+1. Open **SAP Web IDE Full-Stack** using the URL provided by your instructor and logon using the related credentials
 	![](images/087.png)
 
 1. You get the Home page of your Development Environment
